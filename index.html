@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers Quarters</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for animations and additional styling */
+        .teacher-animation {
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
+            background-size: 200% 200%;
+            animation: gradient 8s ease infinite;
+            border-radius: 20px;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .process-animation {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .process-step {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            opacity: 0;
+            animation: processAnimation 12s infinite;
+        }
+        
+        .process-step:nth-child(1) {
+            background: #3b82f6;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .process-step:nth-child(2) {
+            background: #8b5cf6;
+            top: 60%;
+            left: 30%;
+            animation-delay: 3s;
+        }
+        
+        .process-step:nth-child(3) {
+            background: #ec4899;
+            top: 30%;
+            left: 60%;
+            animation-delay: 6s;
+        }
+        
+        .process-step:nth-child(4) {
+            background: #10b981;
+            top: 70%;
+            left: 80%;
+            animation-delay: 9s;
+        }
+        
+        @keyframes processAnimation {
+            0%, 100% { opacity: 0; transform: translateY(20px); }
+            10%, 90% { opacity: 1; transform: translateY(0); }
+        }
+        
+        .testimonial-container {
+            scroll-behavior: smooth;
+        }
+        
+        .partner-logo {
+            transition: all 0.3s ease;
+        }
+        
+        .partner-logo:hover {
+            transform: scale(1.1);
+        }
+        
+        .faq-item {
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            opacity: 1;
+            padding-top: 15px;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .password-requirements {
+            display: none;
+        }
+        
+        input:focus + .password-requirements {
+            display: block;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header Section -->
+    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <!-- Left Navigation -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                <a href="#how-it-works" class="text-gray-700 hover:text-blue-600 font-medium">How It Works</a>
+                <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium">Services</a>
+            </nav>
+            
+            <!-- Center Logo/Heading -->
+            <div class="flex-1 text-center">
+                <h1 class="text-2xl md:text-3xl font-bold text-blue-600">Teachers Quarters</h1>
+                <p class="text-xs md:text-sm text-gray-500">Connecting Educators & Learners</p>
+            </div>
+            
+            <!-- Right Navigation -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="#testimonials" class="text-gray-700 hover:text-blue-600 font-medium">Testimonials</a>
+                <a href="#community" class="text-gray-700 hover:text-blue-600 font-medium">Community</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <div class="flex flex-col space-y-3">
+                <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                <a href="#how-it-works" class="text-gray-700 hover:text-blue-600 font-medium">How It Works</a>
+                <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium">Services</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-blue-600 font-medium">Testimonials</a>
+                <a href="#community" class="text-gray-700 hover:text-blue-600 font-medium">Community</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24 bg-gradient-to-r from-yellow-50 to-red-50">
+        <div class=" mx-auto px-4 h-auto teacher-animation ">
+            <div class="max-w-6xl mx-auto text-center rounded-2xl bg-blue-400 h-80 ">
+                <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-6">Find the Perfect Teacher or Share Your Knowledge</h2>
+                <p class="text-lg md:text-xl text-gray-600 mb-8">Join our platform to connect with educators and learners worldwide. Whether you're looking to teach or learn, we've got you covered.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                        I'm a Teacher
+                    </a>
+                    <a href="#" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                        Find a Teacher
+                    </a>
+                </div>
+            </div>
+            <div class="mt-12 teacher-animation max-w-4xl mx-auto h-64 md:h-80 rounded-2xl shadow-xl flex items-center justify-center">
+                <div class="text-white text-center p-6">
+                    <h3 class="text-xl md:text-2xl font-bold mb-2">Interactive Learning Environment</h3>
+                    <p class="text-sm md:text-base">Experience education like never before</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">How It Works</h2>
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-800 rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="text-xl font-bold">1</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Create Your Profile</h3>
+                                <p class="text-gray-600">Sign up and create a detailed profile highlighting your skills, experience, and teaching preferences. Add your qualifications and areas of expertise.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 text-purple-800 rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="text-xl font-bold">2</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Browse or List Courses</h3>
+                                <p class="text-gray-600">Teachers can list their courses with detailed descriptions. Students can browse through thousands of courses based on subjects, levels, and schedules.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-pink-100 text-pink-800 rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="text-xl font-bold">3</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Connect and Learn</h3>
+                                <p class="text-gray-600">Use our messaging system to connect, schedule sessions, and begin your learning journey. Our platform supports various teaching formats.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-green-100 text-green-800 rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="text-xl font-bold">4</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Track Progress</h3>
+                                <p class="text-gray-600">Both teachers and students can track progress, provide feedback, and manage payments securely through our integrated system.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="process-animation bg-gray-100 rounded-2xl shadow-lg p-6 h-full flex items-center justify-center">
+                        <div class="relative w-full h-full">
+                            <div class="process-step">Sign Up</div>
+                            <div class="process-step">Browse</div>
+                            <div class="process-step">Connect</div>
+                            <div class="process-step">Learn</div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="text-center">
+                                    <i class="fas fa-chalkboard-teacher text-6xl text-blue-500 mb-4"></i>
+                                    <h3 class="text-xl font-bold text-gray-800">Interactive Process</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Our Services</h2>
+            
+            <!-- First Row - Single Column -->
+            <div class="mb-12">
+                <div class="bg-white rounded-2xl shadow-lg p-8 text-center max-w-4xl mx-auto">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-star text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Comprehensive Educational Platform</h3>
+                    <p class="text-gray-600">We offer a complete ecosystem for education, connecting teachers and students across various disciplines and learning levels. Our platform supports multiple teaching formats including one-on-one sessions, group classes, and self-paced courses.</p>
+                </div>
+            </div>
+            
+            <!-- Second Row - Two Columns -->
+            <div class="flex flex-col lg:flex-row gap-8 mb-12">
+                <div class="lg:w-1/2 bg-white rounded-2xl shadow-lg p-8">
+                    <div class="flex items-start mb-6">
+                        <div class="bg-purple-100 text-purple-800 rounded-full w-14 h-14 flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-user-graduate text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">For Students</h3>
+                            <p class="text-gray-600">Find the perfect teacher for your needs with our advanced search filters. Browse teacher profiles, read reviews, and compare options before making your choice.</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Personalized teacher matching based on your learning goals</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Flexible scheduling to fit your busy life</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Secure payment system with satisfaction guarantee</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-gradient-to-br from-purple-100 to-blue-100 rounded-2xl shadow-lg h-full flex items-center justify-center p-6">
+                        <div class="text-center">
+                            <i class="fas fa-search text-5xl text-purple-600 mb-4 animate-bounce"></i>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Find Your Perfect Match</h3>
+                            <p class="text-gray-600">Our algorithm helps you discover teachers who match your learning style and goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Third Row - One Column with Animation -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="flex flex-col lg:flex-row">
+                    <div class="lg:w-1/2 p-8">
+                        <div class="flex items-start mb-6">
+                            <div class="bg-blue-100 text-blue-800 rounded-full w-14 h-14 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-chalkboard-teacher text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">For Teachers</h3>
+                                <p class="text-gray-600">Expand your reach and grow your teaching business with our powerful platform. Manage your schedule, students, and payments all in one place.</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-700">Reach students worldwide with our global platform</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-700">Flexible tools to create and manage your courses</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-700">Secure and timely payments with transparent fees</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-700">Professional development resources and community</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                            Start Teaching Today
+                        </a>
+                    </div>
+                    <div class="lg:w-1/2 bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center p-6">
+                        <div class="relative w-full h-64">
+                            <div class="absolute top-0 left-1/4 bg-white p-4 rounded-lg shadow-md w-48 animate-float1">
+                                <div class="flex items-center mb-2">
+                                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-2">
+                                        <i class="fas fa-calendar-alt text-blue-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-sm font-medium">Schedule Manager</span>
+                                </div>
+                            </div>
+                            <div class="absolute top-1/4 right-1/4 bg-white p-4 rounded-lg shadow-md w-48 animate-float2">
+                                <div class="flex items-center mb-2">
+                                    <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-2">
+                                        <i class="fas fa-users text-purple-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-sm font-medium">Student Roster</span>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-1/4 left-1/4 bg-white p-4 rounded-lg shadow-md w-48 animate-float3">
+                                <div class="flex items-center mb-2">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-2">
+                                        <i class="fas fa-chart-line text-green-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-sm font-medium">Progress Tracking</span>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-0 right-1/4 bg-white p-4 rounded-lg shadow-md w-48 animate-float4">
+                                <div class="flex items-center mb-2">
+                                    <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center mr-2">
+                                        <i class="fas fa-dollar-sign text-yellow-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-sm font-medium">Payment Dashboard</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">What Our Users Say</h2>
+            
+            <div class="relative">
+                <div class="testimonial-container overflow-x-auto scrollbar-hide pb-8 flex space-x-6 snap-x snap-mandatory" id="testimonial-scroll">
+                    <!-- Testimonial 1 -->
+                    <div class="flex-shrink-0 w-full md:w-2/3 lg:w-1/3 snap-start">
+                        <div class="bg-gray-50 rounded-2xl shadow-md p-8 h-full">
+                            <div class="flex items-center mb-6">
+                                <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Sarah Johnson</h4>
+                                    <p class="text-gray-600">Math Teacher</p>
+                                    <div class="flex text-yellow-400 mt-1">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 italic">"Teachers Quarters has transformed how I connect with students. I've doubled my income while working fewer hours thanks to their efficient platform and global reach. The payment system is reliable and the students are motivated learners."</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="flex-shrink-0 w-full md:w-2/3 lg:w-1/3 snap-start">
+                        <div class="bg-gray-50 rounded-2xl shadow-md p-8 h-full">
+                            <div class="flex items-center mb-6">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="David Chen" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-bold text-gray-800">David Chen</h4>
+                                    <p class="text-gray-600">Language Student</p>
+                                    <div class="flex text-yellow-400 mt-1">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 italic">"I've tried several online learning platforms, but Teachers Quarters stands out. The quality of teachers is exceptional, and the ability to schedule sessions that fit my busy work life is invaluable. My Spanish has improved dramatically in just three months!"</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="flex-shrink-0 w-full md:w-2/3 lg:w-1/3 snap-start">
+                        <div class="bg-gray-50 rounded-2xl shadow-md p-8 h-full">
+                            <div class="flex items-center mb-6">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emily Rodriguez" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Emily Rodriguez</h4>
+                                    <p class="text-gray-600">Science Teacher</p>
+                                    <div class="flex text-yellow-400 mt-1">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 italic">"The tools provided by Teachers Quarters make online teaching seamless. From scheduling to payment processing, everything is intuitive. I especially appreciate the resources for creating interactive lessons that keep students engaged in virtual settings."</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 4 -->
+                    <div class="flex-shrink-0 w-full md:w-2/3 lg:w-1/3 snap-start">
+                        <div class="bg-gray-50 rounded-2xl shadow-md p-8 h-full">
+                            <div class="flex items-center mb-6">
+                                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Michael Brown" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Michael Brown</h4>
+                                    <p class="text-gray-600">Music Student</p>
+                                    <div class="flex text-yellow-400 mt-1">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 italic">"As an adult learner, I was nervous about taking piano lessons, but my teacher from Teachers Quarters made the process enjoyable and tailored to my pace. The platform makes it easy to track my progress and review lesson materials."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Arrows -->
+                <button id="testimonial-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white rounded-full shadow-md w-10 h-10 flex items-center justify-center text-blue-600 hover:bg-blue-50 transition">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="testimonial-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white rounded-full shadow-md w-10 h-10 flex items-center justify-center text-blue-600 hover:bg-blue-50 transition">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="flex justify-center mt-8 space-x-2">
+                <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300" data-index="0">1</button>
+                <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300" data-index="1">2</button>
+                <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300" data-index="2">3</button>
+                <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300" data-index="3">4</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Our Trusted Partners</h2>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+                <div class="partner-logo bg-white rounded-xl shadow-sm p-6 flex items-center justify-center w-32 h-20 md:w-40 md:h-24">
+                    <i class="fas fa-university text-4xl text-blue-600"></i>
+                </div>
+                <div class="partner-logo bg-white rounded-xl shadow-sm p-6 flex items-center justify-center w-32 h-20 md:w-40 md:h-24">
+                    <i class="fas fa-book-open text-4xl text-green-600"></i>
+                </div>
+                <div class="partner-logo bg-white rounded-xl shadow-sm p-6 flex items-center justify-center w-32 h-20 md:w-40 md:h-24">
+                    <i class="fas fa-laptop-code text-4xl text-purple-600"></i>
+                </div>
+                <div class="partner-logo bg-white rounded-xl shadow-sm p-6 flex items-center justify-center w-32 h-20 md:w-40 md:h-24">
+                    <i class="fas fa-graduation-cap text-4xl text-yellow-600"></i>
+                </div>
+                <div class="partner-logo bg-white rounded-xl shadow-sm p-6 flex items-center justify-center w-32 h-20 md:w-40 md:h-24">
+                    <i class="fas fa-globe-americas text-4xl text-red-600"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore & Learn Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Explore & Learn</h2>
+                <p class="text-lg text-gray-600">Discover endless learning opportunities across diverse subjects and skill levels. Our platform offers resources for both traditional academic subjects and practical life skills.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-2xl shadow-sm p-8 hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-atom text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Academic Subjects</h3>
+                    <p class="text-gray-600 mb-4">From mathematics to literature, find expert teachers in all core academic areas at every education level.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-gray-700">K-12 Curriculum</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-gray-700">College-Level Courses</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-gray-700">Test Preparation</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 rounded-2xl shadow-sm p-8 hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-language text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Languages</h3>
+                    <p class="text-gray-600 mb-4">Learn languages from native speakers with customized lessons based on your goals and proficiency level.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-gray-700">30+ Languages Offered</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-gray-700">Conversation Practice</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-gray-700">Cultural Immersion</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 rounded-2xl shadow-sm p-8 hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-paint-brush text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Creative Arts</h3>
+                    <p class="text-gray-600 mb-4">Develop your creative skills with guidance from professional artists, musicians, and performers.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-gray-700">Visual Arts</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-gray-700">Music Lessons</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-gray-700">Writing Workshops</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Join Our Growing Community</h2>
+                    <p class="text-lg text-gray-600 mb-6">Connect with like-minded educators and learners in our vibrant community. Share resources, ask questions, and collaborate on educational projects.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-800 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Discussion Forums</h3>
+                                <p class="text-gray-600">Participate in topic-specific forums to exchange ideas and best practices with peers worldwide.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 text-purple-800 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Events & Webinars</h3>
+                                <p class="text-gray-600">Join our regular online events featuring expert speakers on education trends and teaching methodologies.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-green-100 text-green-800 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Collaboration Projects</h3>
+                                <p class="text-gray-600">Work with other members on interdisciplinary projects and shared learning initiatives.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="inline-block mt-8 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                        Join Community
+                    </a>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl shadow-lg p-8 h-full">
+                        <div class="relative h-64">
+                            <div class="absolute top-0 left-0 bg-white p-4 rounded-lg shadow-md w-40 animate-float1">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-2">
+                                        <i class="fas fa-comment text-blue-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-sm font-medium">Discussion</span>
+                                </div>
+                            </div>
+                            <div class="absolute top-1/4 right-0 bg-white p-4 rounded-lg shadow-md w-40 animate-float2">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-2">
+                                        <i class="fas fa-video text-purple-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-sm font-medium">Webinar</span>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-1/4 left-0 bg-white p-4 rounded-lg shadow-md w-40 animate-float3">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-2">
+                                        <i class="fas fa-tasks text-green-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-sm font-medium">Project</span>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-0 right-0 bg-white p-4 rounded-lg shadow-md w-40 animate-float4">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center mr-2">
+                                        <i class="fas fa-user-friends text-yellow-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-sm font-medium">Networking</span>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="text-center">
+                                    <i class="fas fa-users text-6xl text-blue-500 mb-4"></i>
+                                    <h3 class="text-xl font-bold text-gray-800">Community Hub</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Need Help Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Need Help?</h2>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <!-- First Row - Guidelines -->
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Getting Started Guide</h3>
+                        <p class="text-gray-600 mb-6">Our comprehensive help resources will guide you through every step of using Teachers Quarters, from setting up your profile to conducting your first session.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 text-blue-800 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-book-open text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Knowledge Base</h4>
+                                    <p class="text-gray-600 text-sm">Browse our extensive library of articles and tutorials covering all platform features.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-purple-100 text-purple-800 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-video text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Video Tutorials</h4>
+                                    <p class="text-gray-600 text-sm">Watch step-by-step video guides demonstrating key platform functions.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-green-100 text-green-800 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-headset text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Live Support</h4>
+                                    <p class="text-gray-600 text-sm">Connect with our support team via chat or email for personalized assistance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Second Row - Animation -->
+                    <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-6">
+                        <div class="text-center">
+                            <i class="fas fa-question-circle text-5xl text-blue-500 mb-4 animate-pulse"></i>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">We're Here to Help</h3>
+                            <p class="text-gray-600">Our support team is available 24/7 to answer your questions and resolve any issues.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Frequently Asked Questions</h3>
+                    
+                    <div class="space-y-4">
+                        <!-- FAQ Item 1 -->
+                        <div class="faq-item bg-gray-50 rounded-lg p-5 cursor-pointer transition hover:bg-gray-100">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-semibold text-gray-800">How do I sign up as a teacher?</h4>
+                                <i class="fas fa-plus text-blue-600"></i>
+                            </div>
+                            <div class="faq-answer text-gray-600">
+                                <p>To sign up as a teacher, click on the "I'm a Teacher" button on our homepage. You'll be guided through a simple registration process where you can create your profile, list your qualifications, and set up your teaching preferences. Verification of credentials may take 1-2 business days.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 2 -->
+                        <div class="faq-item bg-gray-50 rounded-lg p-5 cursor-pointer transition hover:bg-gray-100">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-semibold text-gray-800">What are the fees for using the platform?</h4>
+                                <i class="fas fa-plus text-blue-600"></i>
+                            </div>
+                            <div class="faq-answer text-gray-600">
+                                <p>For students, there are no subscription fees—you only pay for the lessons you book. Teachers pay a 15% service fee on each completed lesson, which covers platform maintenance, payment processing, and customer support. We offer discounted rates for teachers with high session volumes.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 3 -->
+                        <div class="faq-item bg-gray-50 rounded-lg p-5 cursor-pointer transition hover:bg-gray-100">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-semibold text-gray-800">How are payments processed?</h4>
+                                <i class="fas fa-plus text-blue-600"></i>
+                            </div>
+                            <div class="faq-answer text-gray-600">
+                                <p>We use secure payment processing through Stripe. Students are charged when they book a session, but funds are only released to teachers after the session is completed. Teachers receive payments weekly via direct deposit to their bank account. All transactions are encrypted and secure.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 4 -->
+                        <div class="faq-item bg-gray-50 rounded-lg p-5 cursor-pointer transition hover:bg-gray-100">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-semibold text-gray-800">What technology do I need to teach online?</h4>
+                                <i class="fas fa-plus text-blue-600"></i>
+                            </div>
+                            <div class="faq-answer text-gray-600">
+                                <p>You'll need a reliable internet connection, a computer or tablet with a webcam, and a quiet space for teaching. Our platform works on all major browsers and includes built-in video conferencing tools. For optimal experience, we recommend using Chrome or Firefox with at least 10Mbps upload/download speeds.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 5 -->
+                        <div class="faq-item bg-gray-50 rounded-lg p-5 cursor-pointer transition hover:bg-gray-100">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-semibold text-gray-800">Can I cancel or reschedule a lesson?</h4>
+                                <i class="fas fa-plus text-blue-600"></i>
+                            </div>
+                            <div class="faq-answer text-gray-600">
+                                <p>Yes, you can cancel or reschedule lessons through your dashboard. Please note our cancellation policy: cancellations more than 24 hours before the session receive a full refund, while late cancellations may incur a fee. Teachers can set their own cancellation policies within certain guidelines.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get in Touch Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Get in Touch</h2>
+            
+            <!-- First Row - Guidelines -->
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <p class="text-lg text-gray-600 mb-6">Have questions or feedback? We'd love to hear from you! Our team is committed to providing excellent support and typically responds within 24 hours.</p>
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 text-left max-w-2xl mx-auto">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-info-circle text-yellow-400 mt-1 mr-3"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-yellow-700">Response times may vary during weekends and holidays. For urgent matters, please call our support line at +1 (555) 123-4567.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Row - Two Columns -->
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Contact Information</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-800 rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Headquarters</h4>
+                                <p class="text-gray-600">123 Education Street, Suite 400<br>San Francisco, CA 94107</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 text-purple-800 rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Phone</h4>
+                                <p class="text-gray-600">+1 (555) 123-4567<br>Monday-Friday, 9am-5pm PST</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-green-100 text-green-800 rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Email</h4>
+                                <p class="text-gray-600">support@teachersquarters.com<br>info@teachersquarters.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h4 class="font-semibold text-gray-800 mt-8 mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-blue-700 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-blue-400 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-blue-500 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-pink-600 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-pink-700 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-blue-700 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-blue-800 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="bg-red-600 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-red-700 transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h3>
+                    
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                            <select id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="billing">Billing Question</option>
+                                <option value="feedback">Feedback/Suggestions</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"></textarea>
+                        </div>
+                        
+                        <div class="relative">
+                            <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Create Password (for new accounts)</label>
+                            <input type="password" id="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                            <div class="password-requirements absolute z-10 mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-lg p-4 text-sm">
+                                <p class="font-medium text-gray-800 mb-2">Password Requirements:</p>
+                                <ul class="space-y-1">
+                                    <li class="flex items-center">
+                                        <span id="length" class="w-5 h-5 inline-flex items-center justify-center mr-2 text-gray-400">
+                                            <i class="fas fa-circle text-xs"></i>
+                                        </span>
+                                        <span>At least 8 characters</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span id="uppercase" class="w-5 h-5 inline-flex items-center justify-center mr-2 text-gray-400">
+                                            <i class="fas fa-circle text-xs"></i>
+                                        </span>
+                                        <span>At least 1 uppercase letter</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span id="lowercase" class="w-5 h-5 inline-flex items-center justify-center mr-2 text-gray-400">
+                                            <i class="fas fa-circle text-xs"></i>
+                                        </span>
+                                        <span>At least 1 lowercase letter</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span id="number" class="w-5 h-5 inline-flex items-center justify-center mr-2 text-gray-400">
+                                            <i class="fas fa-circle text-xs"></i>
+                                        </span>
+                                        <span>At least 1 number</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span id="special" class="w-5 h-5 inline-flex items-center justify-center mr-2 text-gray-400">
+                                            <i class="fas fa-circle text-xs"></i>
+                                        </span>
+                                        <span>At least 1 special character</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <input id="agree" type="checkbox" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                            <label for="agree" class="ml-2 block text-sm text-gray-700">
+                                I agree to the <a href="#" class="text-blue-600 hover:underline">Terms of Service</a> and <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Teachers Quarters</h3>
+                    <p class="text-gray-400">Connecting educators and learners worldwide through our innovative platform.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#how-it-works" class="text-gray-400 hover:text-white transition">How It Works</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition">Testimonials</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Teaching Resources</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Learning Materials</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Webinars</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Cookie Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">GDPR Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Teachers Quarters. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Testimonial slider
+        const testimonialScroll = document.getElementById('testimonial-scroll');
+        const testimonialPrev = document.getElementById('testimonial-prev');
+        const testimonialNext = document.getElementById('testimonial-next');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        
+        let currentTestimonial = 0;
+        const testimonialCount = 4;
+        
+        function updateTestimonialDots() {
+            testimonialDots.forEach((dot, index) => {
+                if (index === currentTestimonial) {
+                    dot.classList.remove('bg-gray-300');
+                    dot.classList.add('bg-blue-600');
+                } else {
+                    dot.classList.remove('bg-blue-600');
+                    dot.classList.add('bg-gray-300');
+                }
+            });
+        }
+        
+        testimonialPrev.addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial - 1 + testimonialCount) % testimonialCount;
+            testimonialScroll.scrollTo({
+                left: currentTestimonial * testimonialScroll.offsetWidth,
+                behavior: 'smooth'
+            });
+            updateTestimonialDots();
+        });
+        
+        testimonialNext.addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial + 1) % testimonialCount;
+            testimonialScroll.scrollTo({
+                left: currentTestimonial * testimonialScroll.offsetWidth,
+                behavior: 'smooth'
+            });
+            updateTestimonialDots();
+        });
+        
+        testimonialDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                currentTestimonial = parseInt(dot.getAttribute('data-index'));
+                testimonialScroll.scrollTo({
+                    left: currentTestimonial * testimonialScroll.offsetWidth,
+                    behavior: 'smooth'
+                });
+                updateTestimonialDots();
+            });
+        });
+        
+        // FAQ accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('h4');
+            const icon = item.querySelector('i');
+            
+            item.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                faqItems.forEach(faq => {
+                    faq.classList.remove('active');
+                    faq.querySelector('i').classList.remove('fa-minus');
+                    faq.querySelector('i').classList.add('fa-plus');
+                });
+                
+                // Open current if it was closed
+                if (!isActive) {
+                    item.classList.add('active');
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                }
+            });
+        });
+        
+        // Password validation
+        const passwordInput = document.getElementById('password');
+        
+        passwordInput.addEventListener('input', () => {
+            const password = passwordInput.value;
+            
+            // Check length
+            const lengthValid = password.length >= 8;
+            document.getElementById('length').className = `w-5 h-5 inline-flex items-center justify-center mr-2 ${lengthValid ? 'text-green-500' : 'text-gray-400'}`;
+            document.getElementById('length').innerHTML = lengthValid ? '<i class="fas fa-check text-xs"></i>' : '<i class="fas fa-circle text-xs"></i>';
+            
+            // Check uppercase
+            const uppercaseValid = /[A-Z]/.test(password);
+            document.getElementById('uppercase').className = `w-5 h-5 inline-flex items-center justify-center mr-2 ${uppercaseValid ? 'text-green-500' : 'text-gray-400'}`;
+            document.getElementById('uppercase').innerHTML = uppercaseValid ? '<i class="fas fa-check text-xs"></i>' : '<i class="fas fa-circle text-xs"></i>';
+            
+            // Check lowercase
+            const lowercaseValid = /[a-z]/.test(password);
+            document.getElementById('lowercase').className = `w-5 h-5 inline-flex items-center justify-center mr-2 ${lowercaseValid ? 'text-green-500' : 'text-gray-400'}`;
+            document.getElementById('lowercase').innerHTML = lowercaseValid ? '<i class="fas fa-check text-xs"></i>' : '<i class="fas fa-circle text-xs"></i>';
+            
+            // Check number
+            const numberValid = /[0-9]/.test(password);
+            document.getElementById('number').className = `w-5 h-5 inline-flex items-center justify-center mr-2 ${numberValid ? 'text-green-500' : 'text-gray-400'}`;
+            document.getElementById('number').innerHTML = numberValid ? '<i class="fas fa-check text-xs"></i>' : '<i class="fas fa-circle text-xs"></i>';
+            
+            // Check special character
+            const specialValid = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+            document.getElementById('special').className = `w-5 h-5 inline-flex items-center justify-center mr-2 ${specialValid ? 'text-green-500' : 'text-gray-400'}`;
+            document.getElementById('special').innerHTML = specialValid ? '<i class="fas fa-check text-xs"></i>' : '<i class="fas fa-circle text-xs"></i>';
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
